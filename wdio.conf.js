@@ -26,7 +26,7 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        './pageObjects/*.js'
+     //   './pageObjects/*.js'
     ],
     //
     // ============
@@ -118,7 +118,10 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: 'jasmine',
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 10000
+      },
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -131,13 +134,8 @@ exports.config = {
         
     //  },
       
-    //
-    // Options to be passed to Mocha.
-    // See the full list at http://mochajs.org/
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 80000
-    },
+ 
+    
     //
     // =====
     // Hooks
@@ -170,11 +168,8 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    before: function (capabilities, specs) {
-    expect = require('chai').expect;
-    should = require('chai').should();
-    assert = require('chai').assert;    
-     },
+    // before: function (capabilities, specs) {
+    // },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
